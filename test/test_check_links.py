@@ -19,9 +19,7 @@ def test_ipynb_with_ignore(pytester):
 
 def test_ipynb_with_allow_absolute(pytester):
     pytester.copy_example("linkcheck.ipynb")
-    result = pytester.runpytest_subprocess(
-        "-v", "--check-links", "--check-links-allow-absolute"
-    )
+    result = pytester.runpytest_subprocess("-v", "--check-links", "--check-links-allow-absolute")
     result.assert_outcomes(passed=4, failed=3)
 
 
